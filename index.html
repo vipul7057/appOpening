@@ -27,6 +27,7 @@
     }
     
     function isPhonePeInstalled() {
+      var isPhonePe = false;
         // Check if the PhonePe app is installed on iOS
         if (
           navigator.userAgent.match(/iPhone|iPad|iPod/i) &&
@@ -34,17 +35,16 @@
           typeof window.webkit.messageHandlers !== "undefined" &&
           typeof window.webkit.messageHandlers.phonePe !== "undefined"
         ) {
-          return true;
+          isPhonePe =  true;
         }
-
-        return false;
-      }
+          if (isPhonePe) {
+            alert("PhonePe app is installed");
+          } else {
+            alert("PhonePe app is not installed");
+     }
 
       // Usage
-      if (isPhonePeInstalled()) {
-       alert("PhonePe app is installed");
-      } else {
-        alert("PhonePe app is not installed");
+     
 }
 
   </script>
