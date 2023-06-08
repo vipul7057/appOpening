@@ -5,7 +5,7 @@
 </head>
 <body>
   <button onclick="openFacebook()"><img style="width: 70px;height: 70px;" src="https://img.freepik.com/premium-vector/blue-social-media-logo_197792-1759.jpg" alt=""></button>
-  <button style="margin-left: 20px;" onclick="openTwitter()"><img style="width: 70px;height: 70px;" src="https://img.uxwing.com/wp-content/themes/uxwing/download/brands-social-media/phonepe-logo-icon.png" alt=""></button>
+  <button style="margin-left: 20px;" onclick="isPhonePeInstalled()"><img style="width: 70px;height: 70px;" src="https://img.uxwing.com/wp-content/themes/uxwing/download/brands-social-media/phonepe-logo-icon.png" alt=""></button>
 
   <script>
     function errorMsg() {
@@ -25,6 +25,28 @@
                 window.location.href = "https://twitter.com";
       }, 1000); // Wait for 3 seconds before fallback
     }
+    
+    function isPhonePeInstalled() {
+        // Check if the PhonePe app is installed on iOS
+        if (
+          navigator.userAgent.match(/iPhone|iPad|iPod/i) &&
+          typeof window.webkit !== "undefined" &&
+          typeof window.webkit.messageHandlers !== "undefined" &&
+          typeof window.webkit.messageHandlers.phonePe !== "undefined"
+        ) {
+          return true;
+        }
+
+        return false;
+      }
+
+      // Usage
+      if (isPhonePeInstalled()) {
+       alert("PhonePe app is installed");
+      } else {
+        alert("PhonePe app is not installed");
+}
+
   </script>
 </body>
 </html>
