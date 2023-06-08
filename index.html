@@ -4,8 +4,8 @@
   <title>Social Media Buttons</title>
 </head>
 <body>
-  <button onclick="openFacebook()"><img style="width: 70px;height: 70px;" src="https://img.freepik.com/premium-vector/blue-social-media-logo_197792-1759.jpg" alt=""></button>
-  <button style="margin-left: 20px;" onclick="openPhonePe()"><img style="width: 70px;height: 70px;" src="https://img.uxwing.com/wp-content/themes/uxwing/download/brands-social-media/phonepe-logo-icon.png" alt=""></button>
+  <button onclick="openFacebook"><img style="width: 70px;height: 70px;" src="https://img.freepik.com/premium-vector/blue-social-media-logo_197792-1759.jpg" alt=""></button>
+  <button style="margin-left: 20px;" onclick="openTwitter()"><img style="width: 70px;height: 70px;" src="https://img.uxwing.com/wp-content/themes/uxwing/download/brands-social-media/phonepe-logo-icon.png" alt=""></button>
 
   <script>
     function errorMsg() {
@@ -13,37 +13,17 @@
     }
 
     function openFacebook() {
-     var checkInstalled;
-      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-     if (userAgent.match(/FBAN|FBAV/i)) {
-         checkInstalled = true;
-     }
-     if(checkInstalled)
-     {
-        window.location.href = "fb://";
-     }else
-     {
-        setTimeout(function() {
-            errorMsg();
-        }, 1000);
-     }
+      window.location.href = "fb://";
+      setTimeout(function() {
+               window.location.href = "https://twitter.com";
+      }, 1000); // Wait for 3 seconds before fallback
     }
 
-    function openPhonePe() {
-    var checkInstalled;
-      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-     if (userAgent.match(/PhonePe/i)) {
-         checkInstalled = true;
-     }
-     if(checkInstalled)
-     {
-        window.location.href = "phonepe://";
-     }else
-     {
-        setTimeout(function() {
-            errorMsg();
-        }, 1000);
-     }
+    function openTwitter() {
+      window.location.href = "twitter://";
+      setTimeout(function() {
+                window.location.href = "https://twitter.com";
+      }, 1000); // Wait for 3 seconds before fallback
     }
   </script>
 </body>
