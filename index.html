@@ -1,26 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>PhonePe App Detection</title>
+  <title>Social Media Buttons</title>
 </head>
 <body>
-  <button onclick="openPhonePe()">Open PhonePe</button>
+  <button onclick="openFacebook()"><img style="width: 70px;height: 70px;" src="https://img.freepik.com/premium-vector/blue-social-media-logo_197792-1759.jpg" alt=""></button>
+  <button style="margin-left: 20px;" onclick="openTwitter()"><img style="width: 70px;height: 70px;" src="https://img.uxwing.com/wp-content/themes/uxwing/download/brands-social-media/phonepe-logo-icon.png" alt=""></button>
 
   <script>
-    function openPhonePe() {
-      // Check if the PhonePe app is installed on iOS
-      if (
-        navigator.userAgent.match(/iPhone|iPad|iPod/i) &&
-        typeof window.webkit !== "undefined" &&
-        typeof window.webkit.messageHandlers !== "undefined" &&
-        typeof window.webkit.messageHandlers.phonePe !== "undefined"
-      ) {
-        // Open the PhonePe app
-        window.webkit.messageHandlers.phonePe.postMessage("");
-      } else {
-        // Display an error message if PhonePe app is not installed
-        alert("PhonePe app is not installed.");
-      }
+    function errorMsg() {
+        alert("app is not installed");
+    }
+
+    function openFacebook() {
+        var url = "fb://";
+        window.location.href = url;
+
+        window.addEventListener("blur", function() {
+                appOpened = true;
+         });
+
+        setTimeout(function() {
+            if (appOpened) {
+                alert("Mobile app was opened successfully");
+            } else {
+                alert("Mobile app was not opened");
+                }
+            }, 3000); 
+
+    }
+
+    function openTwitter() {
+      var url = "phonepe://";
+        window.location.href = url;
+
+        window.addEventListener("blur", function() {
+                appOpened = true;
+         });
+
+        setTimeout(function() {
+            if (appOpened) {
+                alert("Mobile app was opened successfully");
+            } else {
+                alert("Mobile app was not opened");
+                }
+            }, 3000); 
+
     }
   </script>
 </body>
