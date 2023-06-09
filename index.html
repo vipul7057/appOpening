@@ -18,14 +18,16 @@
         window.location.href = url;
 
         window.addEventListener("blur", function() {
-               appOpened = false;
-               document.getElementById("successMsg").style.display = 'block';
+                appOpened = true;
          });
 
-            if (appOpened == false) {
-                 document.getElementById("errorMsg").style.display = 'block';
-            } 
-
+        setTimeout(function() {
+            if (appOpened) {
+                 document.getElementById("successMsg").style.display = 'block';
+            } else {
+                  alert("Mobile app was not opened");
+                }
+            }, 3000); 
 
     }
 
@@ -37,11 +39,14 @@
                 appOpened = true;
          });
 
-       if (appOpened) {
-            document.getElementById("successMsg").style.display = 'block';
-       } else {
-            document.getElementById("errorMsg").style.display = 'block';
-       }
+        setTimeout(function() {
+            if (appOpened) {
+                 document.getElementById("successMsg").style.display = 'block';
+            } else {
+               alert("Mobile app was not opened")
+                }
+            }, 3000); 
+
     }
   </script>
 </body>
