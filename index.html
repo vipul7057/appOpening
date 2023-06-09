@@ -6,7 +6,8 @@
 <body>
   <button onclick="openFacebook()"><img style="width: 70px;height: 70px;" src="https://img.freepik.com/premium-vector/blue-social-media-logo_197792-1759.jpg" alt=""></button>
   <button style="margin-left: 20px;" onclick="openTwitter()"><img style="width: 70px;height: 70px;" src="https://img.uxwing.com/wp-content/themes/uxwing/download/brands-social-media/phonepe-logo-icon.png" alt=""></button>
-
+    <div id="errorMsg" style="display: none;">Mobile app was not opened</div>
+     <div id="successMsg" style="display: none;">Mobile app was Opened</div>
   <script>
     function errorMsg() {
         alert("app is not installed");
@@ -22,9 +23,9 @@
 
         setTimeout(function() {
             if (appOpened) {
-                alert("Mobile app was opened successfully");
+                 document.getElementById("successMsg").style.display = 'block';
             } else {
-                alert("Mobile app was not opened");
+                   document.getElementById("errorMsg").style.display = 'block';
                 }
             }, 3000); 
 
