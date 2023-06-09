@@ -5,19 +5,15 @@
 </head>
 <body>
   <button onclick="openFacebook()"><img style="width: 70px;height: 70px;" src="https://img.freepik.com/premium-vector/blue-social-media-logo_197792-1759.jpg" alt=""></button>
-  <button style="margin-left: 20px;" onclick="openPhonePe()"><img style="width: 70px;height: 70px;" src="https://img.uxwing.com/wp-content/themes/uxwing/download/brands-social-media/phonepe-logo-icon.png" alt=""></button>
-  <button style="margin-left: 20px;" onclick="openGooglePay()"><img style="width: 70px;height: 70px;" src="https://i.pinimg.com/originals/f6/60/a6/f660a637c5ea8ef2b00218bac3479c82.png" alt=""></button>
-  <div id="successMsg" style="display: none;"> <p id="appName"></p>Mobile application was Opened</div>
+  <button style="margin-left: 20px;" onclick="openTwitter()"><img style="width: 70px;height: 70px;" src="https://img.uxwing.com/wp-content/themes/uxwing/download/brands-social-media/phonepe-logo-icon.png" alt=""></button>
+    <div id="errorMsg" style="display: none;">Mobile app was not opened</div>
+     <div id="successMsg" style="display: none;">Mobile app was Opened</div>
   <script>
-
-    function addAppName(appName)
-    {
-        var p = document.getElementById("appName");
-        var text = document.createTextNode(appName);
-        p.appendChild(text);
+    function errorMsg() {
+        alert("app is not installed");
     }
+
     function openFacebook() {
-        var appName = "FaceBook";
         var url = "fb://";
        var appOpened = null;
         window.location.href = url;
@@ -28,17 +24,15 @@
 
         setTimeout(function() {
             if (appOpened) {
-                addAppName();
-                document.getElementById("successMsg").style.display = 'block';
+                 document.getElementById("successMsg").style.display = 'block';
             } else {
-                  alert(appName," Mobile app is not installed");
+                  alert("Mobile app was not opened");
                 }
             }, 3000); 
 
     }
 
-    function openPhonePe() {
-        var appName = "PhonePe";
+    function openTwitter() {
       var url = "phonepe://";
        var appOpened = null;
         window.location.href = url;
@@ -49,30 +43,9 @@
 
         setTimeout(function() {
             if (appOpened) {
-                addAppName();
                  document.getElementById("successMsg").style.display = 'block';
             } else {
-                alert(appName," Mobile app is not installed");
-                }
-            }, 3000); 
-
-    }
-    function openGooglePay() {
-        var appName = "GooglePay";
-      var url = "googlepay://";
-       var appOpened = null;
-        window.location.href = url;
-
-        window.addEventListener("blur", function() {
-                appOpened = true;
-         });
-
-        setTimeout(function() {
-            if (appOpened) {
-                addAppName();
-                 document.getElementById("successMsg").style.display = 'block';
-            } else {
-                alert(appName," Mobile app is not installed");
+               alert("Mobile app was not opened")
                 }
             }, 3000); 
 
