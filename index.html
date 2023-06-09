@@ -41,12 +41,11 @@
 
         setTimeout(function() {
             if (appOpened) {
-                alert("Mobile app was opened successfully");
+                 document.getElementById("successMsg").style.display = 'block';
             } else {
-                alert("Mobile app was not opened");
+                   document.getElementById("errorMsg").style.display = 'block';
                 }
             }, 3000); 
-
     }
   </script>
 </body>
