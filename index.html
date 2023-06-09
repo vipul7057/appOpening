@@ -18,16 +18,14 @@
         window.location.href = url;
 
         window.addEventListener("blur", function() {
-                appOpened = true;
+               appOpened = false;
+               document.getElementById("successMsg").style.display = 'block';
          });
 
-        setTimeout(function() {
-            if (appOpened) {
-                 document.getElementById("successMsg").style.display = 'block';
-            } else {
-                   document.getElementById("errorMsg").style.display = 'block';
-                }
-            }, 3000); 
+            if (appOpened == false) {
+                 document.getElementById("errorMsg").style.display = 'block';
+            } 
+
 
     }
 
@@ -39,13 +37,11 @@
                 appOpened = true;
          });
 
-        setTimeout(function() {
-            if (appOpened) {
-                 document.getElementById("successMsg").style.display = 'block';
-            } else {
-                   document.getElementById("errorMsg").style.display = 'block';
-                }
-            }, 3000); 
+       if (appOpened) {
+            document.getElementById("successMsg").style.display = 'block';
+       } else {
+            document.getElementById("errorMsg").style.display = 'block';
+       }
     }
   </script>
 </body>
